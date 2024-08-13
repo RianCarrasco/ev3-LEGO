@@ -1,5 +1,5 @@
 #!/usr/bin/env pybricks-micropython
-# This program requires LEGO EV3 MicroPython v2.0 ou superior.
+# acredito que só funciona com ev3
 
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import Motor, InfraredSensor
@@ -10,7 +10,7 @@ import _thread
 
 # Crie seus objetos aqui.
 ev3 = EV3Brick()
-claw_motor = Motor(Port.C)
+garra = Motor(Port.C)
 move_motor = Motor(Port.A)
 sting_motor = Motor(Port.D)
 
@@ -28,6 +28,7 @@ def control_by_remote():
 # Manter o programa em execução
 while True:
     move_motor.run_time(1000, 1000, Stop.HOLD, wait=False)
-    claw_motor.run_time(300, 1000, Stop.HOLD, wait=True)
-    claw_motor.run_time(-300, 1000, Stop.HOLD, wait=True)
+    garra.run_time(300, 1000, Stop.HOLD, wait=True)
+    garra.run_time(-300, 1000, Stop.HOLD, wait=True)
+    move_motor.run_time(-1000, 1000, Stop.HOLD, wait=False)
     #wait(100)
