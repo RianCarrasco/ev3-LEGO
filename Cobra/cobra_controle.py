@@ -31,7 +31,7 @@ def attack(speed):
 # Função para mover a cobra com base nos comandos do controle remoto
 def move_based_on_remote():
     while True:
-        buttons = visao.buttons(1)  # Usando o canal 1 do controle remoto
+        buttons = visao.buttons(2)  # Usando o canal 1 do controle remoto
         if Button.LEFT_UP in buttons:
             deslisa.run(600)  # Move para frente
         elif Button.RIGHT_UP in buttons:
