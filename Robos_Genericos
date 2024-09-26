@@ -58,3 +58,89 @@
 
 # EV3Brick.buttons.pressed()
 # Retorna uma lista de botões pressionados no EV3.
+# Motor.reset_angle(angle)
+# Redefine o ângulo do motor para um valor específico.
+# Argumento:
+# - angle: O novo valor do ângulo em graus (int).
+
+# Motor.angle()
+# Retorna o ângulo atual do motor.
+# Retorna o ângulo em graus (int).
+
+# Motor.stall()
+# Verifica se o motor está emperrado.
+# Retorna True se estiver emperrado, False caso contrário (bool).
+
+# Motor.speed()
+# Retorna a velocidade atual do motor em graus por segundo.
+# Retorna a velocidade em graus por segundo (int).
+
+# Motor.control.limits(speed, acceleration, torque)
+# Define limites para a velocidade, aceleração e torque do motor.
+# Argumentos:
+# - speed: Limite máximo de velocidade (graus por segundo).
+# - acceleration: Limite máximo de aceleração (graus por segundo²).
+# - torque: Limite máximo de torque (newton-metros).
+
+# InfraredSensor.proximity()
+# Retorna uma leitura aproximada da proximidade de objetos.
+# Retorna um valor de proximidade de 0 a 100 (int).
+
+# InfraredSensor.beacon(channel)
+# Retorna True se o botão do modo "beacon" estiver sendo pressionado.
+# Argumento:
+# - channel: O canal do controle remoto (int).
+
+# ColorSensor.color()
+# Detecta a cor atual sob o sensor de cor.
+# Retorna um valor da enumeração Color (Color.BLACK, Color.WHITE, etc.).
+
+# ColorSensor.reflection()
+# Mede a intensidade da luz refletida.
+# Retorna um valor de 0 a 100% (int).
+
+# ColorSensor.ambient()
+# Mede a luz ambiente ao redor do sensor de cor.
+# Retorna um valor de 0 a 100% (int).
+
+# GyroSensor.angle()
+# Retorna o ângulo atual medido pelo giroscópio.
+# Retorna o ângulo em graus (int).
+
+# GyroSensor.speed()
+# Retorna a velocidade angular atual.
+# Retorna a velocidade em graus por segundo (int).
+
+# GyroSensor.reset_angle(angle)
+# Redefine o ângulo do giroscópio para um valor específico.
+# Argumento:
+# - angle: O novo valor do ângulo em graus (int).
+
+# TouchSensor.pressed()
+# Verifica se o sensor tátil está sendo pressionado.
+# Retorna True se estiver pressionado, False caso contrário (bool).
+
+# UltrasonicSensor.distance()
+# Mede a distância até o objeto mais próximo em milímetros.
+# Retorna a distância em milímetros (int).
+
+# UltrasonicSensor.presence()
+# Detecta a presença de um objeto próximo.
+# Retorna True se houver um objeto próximo, False caso contrário (bool).
+
+# wait(time)
+# Faz o programa aguardar por um tempo específico.
+# Argumento:
+# - time: O tempo em milissegundos (int).
+
+# Stop (Constante)
+# Modo de parada do motor. Pode ser:
+# - Stop.COAST: Deixa o motor continuar girando livremente.
+# - Stop.BRAKE: Para o motor imediatamente, sem segurar a posição.
+# - Stop.HOLD: Para o motor e mantém a posição.
+
+# Button (Constante)
+# Enumeração que define os botões do EV3. Exemplos:
+# - Button.CENTER: Botão central.
+# - Button.LEFT: Botão esquerdo.
+# - Button.RIGHT: Botão direito.
