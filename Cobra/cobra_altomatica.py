@@ -15,7 +15,7 @@ import random
 # Create your objects here.
 ev3 = EV3Brick()
 bote = Motor(Port.D)
-deslisa = Motor(Port.A)
+deslia = Motor(Port.A)
 motor_meio = Motor(Port.B)
 visao = InfraredSensor(Port.S4)
 
@@ -47,17 +47,17 @@ def slither(speed):
     global blink_colour
     blink_colour = Color.GREEN
     motor_meio.run(speed)
-    deslisa.run_time(random.randint(-500,500),200)
+    desliza.run_time(random.randint(-500,500),200)
 
 def hide():
     global blink_colour
     blink_colour = Color.YELLOW
-    deslisa.run(360)
+    desliza.run(360)
     motor_meio.run(-800)
     wait(1500)
-    deslisa.brake()
+    desliza.brake()
     motor_meio.brake()
-    deslisa.run(-360)
+    desliza.run(-360)
     wait(1000)
 
 def main_procedure():
