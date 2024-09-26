@@ -1,56 +1,60 @@
-#!/usr/bin/env pybricks-micropython
-# só funciona com ev3 eu acho
+# Motor.run(speed)
+# Faz o motor girar continuamente a uma certa velocidade.
+# Argumento:
+# - speed: Velocidade em graus por segundo (int).
 
-from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import Motor, InfraredSensor
-from pybricks.parameters import Port, Stop, Button, Color
-from pybricks.tools import wait
-from pybricks.media.ev3dev import SoundFile, ImageFile
-import _thread
+# Motor.run_angle(speed, angle, then=Stop.HOLD, wait=True)
+# Gira o motor a uma velocidade definida até atingir um determinado ângulo.
+# Argumentos:
+# - speed: Velocidade em graus por segundo (int).
+# - angle: Ângulo total a ser girado em graus (int).
+# - then: Ação após o movimento (Stop).
+# - wait: Se o programa deve aguardar o movimento (bool).
 
-# Crie seus objetos aqui.
-ev3 = EV3Brick()
+# Motor.run_target(speed, target_angle, then=Stop.HOLD, wait=True)
+# Move o motor para uma posição angular específica a uma certa velocidade.
+# Argumentos:
+# - speed: Velocidade em graus por segundo (int).
+# - target_angle: Ângulo de destino em graus (int).
+# - then: Ação após o movimento (Stop).
+# - wait: Se o programa deve aguardar o movimento (bool).
 
+# Motor.stop(then=Stop.HOLD)
+# Para o motor.
+# Argumento:
+# - then: Ação após parar (Stop).
 
-garra = Motor(Port.C)
-move_motor = Motor(Port.A)
-rabo = Motor(Port.D)
-visao = InfraredSensor(Port.S4)
+# Motor.dc(duty_cycle)
+# Controla diretamente o motor definindo um ciclo de trabalho.
+# Argumento:
+# - duty_cycle: Ciclo de trabalho como uma porcentagem (-100 a 100) (int).
 
-def play_sound():
-    ev3.speaker.play_file(SoundFile.SNAKE_HISS)
+# InfraredSensor.distance()
+# Mede a distância do objeto em frente ao sensor infravermelho.
+# Retorna a distância em milímetros (int).
 
-def atacar(speed):
-    global blink_colour
-    blink_colour = Color.RED
-    _thread.start_new_thread(play_sound, ())
-    rabo.brake()
-    rabo.run_time(speed,400,Stop.COAST)
-    rabo.run_time(-2*speed,1000)
-    wait(1000)
+# InfraredSensor.buttons(channel)
+# Retorna os botões pressionados no sensor remoto de infravermelho.
+# Argumento:
+# - channel: Canal do controle remoto (int).
+# Retorna uma lista de botões pressionados.
 
+# EV3Brick.speaker.play_file(file_name)
+# Reproduz um arquivo de som no brick EV3.
+# Argumento:
+# - file_name: O nome do arquivo de som (SoundFile).
 
-# Função para mover a escorpião
-def meche_controle():
-    while True:
-        buttons = visao.buttons(1)  # Usando o canal 1 do controle remoto
-        if Button.LEFT_UP in buttons:
-            move_motor.run(600)  # Move para frente
-        elif Button.RIGHT_UP in buttons:
-            move_motor.run(-600)  # Move para trás
-        elif Button.RIGHT_DOWN in buttons:
-            garra.run_time(300, 500)  # abre a garra
-        elif Button.LEFT_DOWN in buttons:
-            garra.run_time(-300, 500)  # fecha a garra
-        elif Button.BEACON in buttons:
-            atacar(1000)
-        else:
-            move_motor.stop()
-            garra.stop()
+# EV3Brick.speaker.beep(frequency=500, duration=100, volume=100)
+# Emite um som "beep" no brick EV3.
+# Argumentos:
+# - frequency: Frequência do som em Hz (int).
+# - duration: Duração do beep em milissegundos (int).
+# - volume: Volume do som (0 a 100) (int).
 
-# Iniciar a função de controle remoto em um novo thread, na real nem precisava disso
-_thread.start_new_thread(meche_controle, ())
+# EV3Brick.screen.load_image(image_file)
+# Carrega e exibe uma imagem na tela do EV3.
+# Argumento:
+# - image_file: O arquivo de imagem (ImageFile).
 
-# Manter o programa em execução
-while True:
-    wait(100)
+# EV3Brick.buttons.pressed()
+# Retorna uma lista de botões pressionados no EV3.
