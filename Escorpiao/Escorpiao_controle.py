@@ -31,7 +31,7 @@ def atacar(speed):
 
 
 # Função para mover a escorpião
-def meche_controle():
+def mexe_controle():
     while True:
         buttons = visao.buttons(1)  # Usando o canal 1 do controle remoto
         if Button.LEFT_UP in buttons:
@@ -49,7 +49,7 @@ def meche_controle():
             garra.stop()
 
 # Iniciar a função de controle remoto em um novo thread, na real nem precisava disso
-_thread.start_new_thread(meche_controle, ())
+_thread.start_new_thread(mexe_controle, ())
 
 # Manter o programa em execução
 while True:
